@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="heading">
+    <p class="pnr-heading">PNR Status</p>
+    <div class="pnr-heading-bottom-bar"></div>
+  </div>
+
+  <div class="PNR-container">
+    <div class="pnrForm">
+      <form #simpleForm="ngForm"  (ngSubmit)="getUserValue(simpleForm.value)">
+        <div class="form-input-field">
+          <label>Enter PNR Number</label>
+          <input ngModel placeholder="PNR Number" name="pnrNumber"/>
+
+          <button>Check Status</button>
+        </div>
+      </form>
+
+      <div class="orSection">
+        <p>OR</p>
+        <p>Click here to <span>search trains</span></p>
+      </div>
+    </div>
+    <div class="pnrResult">
+      <div>
+        <img src="assets/ticket.jpg" alt="" width="100%" height="100%" />
+      </div>
+    </div>
+  </div>
+</div>

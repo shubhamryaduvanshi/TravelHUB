@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <div class="box">
+      <div class="box-img">
+        <!-- <img [src]="feature.image" alt=""> -->
+        <ng-lottie width="135px" height="110px" [options]="option0" (animationCreated)="animationCreated($event)"></ng-lottie>
+      </div>
+      <div class="box-content">
+        <div>{{ features[0].content }}</div>
+        <div *ngIf="features[0].upcomingFeature" class="upcoming-feature">
+          {{ features[0].upcomingFeature }}
+          <span *ngIf="features[0].upcomingLable" class="upcoming-label">{{ features[0].upcomingLable }}</span>
+        </div>
+      </div>
+  </div>
+  <div class="box">
+    <div class="box-img">
+      <!-- <img [src]="feature.image" alt=""> -->
+      <ng-lottie width="135px" height="110px" [options]="option1" (animationCreated)="animationCreated($event)"></ng-lottie>
+    </div>
+    <div class="box-content">
+      <div>{{ features[1].content }}</div>
+      <div *ngIf="features[1].upcomingFeature" class="upcoming-feature">
+        {{ features[1].upcomingFeature }}
+        <span *ngIf="features[1].upcomingLable" class="upcoming-label">{{ features[1].upcomingLable }}</span>
+      </div>
+    </div>
+</div>
+</div>

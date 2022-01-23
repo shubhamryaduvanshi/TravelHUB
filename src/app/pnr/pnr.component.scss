@@ -1,0 +1,104 @@
+.wrapper {
+  background-color: rgb(231, 230, 230);
+  .heading {
+    .pnr-heading {
+      font-size: 24px;
+      font-weight: 500;
+      padding: 20px 20px 0 20px;
+    }
+    .pnr-heading-bottom-bar {
+      border-top: 2px solid black;
+      width: 80px;
+      margin-left: 35px;
+    }
+  }
+
+  .PNR-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    .pnrForm {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .form-input-field {
+        display: flex;
+        flex-direction: column;
+        label{
+          font-size: 18px;
+          font-weight: 400;
+          margin-bottom: 8px;
+        }
+        input{
+          font-size: 18px;
+          font-weight: 500;
+          border: none;
+          border-radius: 3px;
+          padding: 10px 8px;
+          width: 100%;
+          &:focus {
+            outline: none;
+          }
+        }
+        button{
+          font-size: 16px;
+          font-weight: 500;
+          border: none;
+          margin: 20px 0 25px 5px;
+          padding: 8px 4px;
+          width: 100%;
+          background-color: #FD0909;
+          color: white;
+          cursor: pointer;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .orSection{
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          padding: 10px 0;
+          p{
+            font-weight: 500;
+            font-size: 18px;
+          span{
+            color: blueviolet;
+          }
+          }
+        
+      }
+    }
+    .pnrResult {
+      width:40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      min-height: 250px;
+      margin: 0 0 20px 0;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .wrapper {
+    .PNR-container {
+      display: flex;
+      flex-direction: column;
+      .pnrForm {
+        width: 100%;
+      }
+      .pnrResult {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+  
