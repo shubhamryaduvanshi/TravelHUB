@@ -9,9 +9,9 @@
       <form #simpleForm="ngForm" (ngSubmit)="getUserValue(simpleForm.value)">
         <div class="form-input-field">
           <label>Enter PNR Number</label>
-          <input ngModel placeholder="PNR Number" name="pnrNumber" />
-
-          <button>Check Status</button>
+          <input ngModel #pnrNumber="ngModel" placeholder="PNR Number" name="pnrNumber" minlength="10" maxlength="10" required pattern="^[0-9]*$"/>
+          <span style="color: rgb(228, 3, 3); padding-top: 3px;" *ngIf="pnrNumber.invalid && pnrNumber.touched" >* Please Enter 10 Digit PNR Number</span>
+          <button [disabled]="pnrNumber.invalid && pnrNumber.touched">Check Status</button>
         </div>
       </form>
 
@@ -24,8 +24,8 @@
       <div *ngIf="!pnrData">
         <img src="assets/ticket.jpg" alt="" width="100%" height="100%" />
       </div>
-      <div *ngIf="pnrData">
-        <div *ngIf="pnrData.error" style="font-size: 20px; font-weight: 600">
+      <div *ngIf="pnrData" class="pnrData">
+        <div *ngIf="pnrData.error" style="font-size: 20px; font-weight: 600;text-align: center;">
           {{ pnrData.error }}
         </div>
         <div
@@ -54,29 +54,28 @@
           Passenger details:
           <div
             *ngFor="let passenger of pnrData.passenger; i: of; index"
-            style="
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-            "
+            style="width: 100%;display: flex;flex-direction: column;box-shadow: 2px 2px 6px 1px gainsboro;padding: 5px 10px;margin: 10px auto;"
           >
-            <div style="display: flex; justify-content: space-around">
-              <p>Passenger Name <span style="font-weight: 500;"> {{ passenger.name }}</span></p> 
+            <div style="display: flex; justify-content: space-between">
+              Passenger Name <b>{{ passenger.name }}</b>
             </div>
-            <div style="display: flex; justify-content: space-around">
+            <div style="display: flex; justify-content: space-between">
               Booking Status <b>{{ passenger.booking_status }}</b>
             </div>
-            <div style="display: flex; justify-content: space-around">
+            <div style="display: flex; justify-content: space-between">
               Current Status <b>{{ passenger.current_status }}</b>
             </div>
           </div>
         </div>
         <br >
-        <div *ngIf="pnrData.train_name" style="font-size: 16px">
-          Train Name : {{ pnrData.train_name }}
+        <div *ngIf="pnrData.train_name" style="font-size: 16px; display: flex;justify-content: space-between;">
+          Train Name : <b>{{ pnrData.train_name }}</b>
         </div>
-        <div *ngIf="pnrData.class" >
-          Class: {{ pnrData.class }}
+        <div *ngIf="pnrData.class" style="font-size: 16px; display: flex;justify-content: space-between;" >
+          Class: <b>{{ pnrData.class }}</b>
+        </div>
+        <div *ngIf="pnrData.departure_data" style="font-size: 16px; display: flex;justify-content: space-between;" >
+          Journey Start Date: <b>{{ pnrData.departure_data.departure_date  }}</b>
         </div>
       </div>
     </div>

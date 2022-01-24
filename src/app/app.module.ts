@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PNRComponent } from './pnr/pnr.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 export function playerFactory() {
   return player;
 }
