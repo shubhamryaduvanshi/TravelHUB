@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CommonServiceService} from '../common-service.service';
+import { CommonServiceService } from '../common-service.service';
 @Component({
   selector: 'app-pnr',
   templateUrl: './pnr.component.html',
@@ -7,15 +7,19 @@ import {CommonServiceService} from '../common-service.service';
 })
 export class PNRComponent implements OnInit {
 
-  constructor(public service:CommonServiceService) { }
+  constructor(public service: CommonServiceService) { }
 
   ngOnInit(): void {
   }
 
-  getUserValue(data:any){
-    console.log(data);
-    
-  this.service.getPNRStatus(data.pnrNumber).subscribe(d=>{console.log(d)});
-    
+
+  pnrData: any;
+  
+  getUserValue(data: any) {
+    this.service.getPNRStatus(data.pnrNumber).subscribe(d => {
+      this.pnrData = d
+    });
   }
+
+
 }

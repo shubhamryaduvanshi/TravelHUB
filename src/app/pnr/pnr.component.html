@@ -6,10 +6,10 @@
 
   <div class="PNR-container">
     <div class="pnrForm">
-      <form #simpleForm="ngForm"  (ngSubmit)="getUserValue(simpleForm.value)">
+      <form #simpleForm="ngForm" (ngSubmit)="getUserValue(simpleForm.value)">
         <div class="form-input-field">
           <label>Enter PNR Number</label>
-          <input ngModel placeholder="PNR Number" name="pnrNumber"/>
+          <input ngModel placeholder="PNR Number" name="pnrNumber" />
 
           <button>Check Status</button>
         </div>
@@ -21,9 +21,94 @@
       </div>
     </div>
     <div class="pnrResult">
-      <div>
+      <div *ngIf="!pnrData">
         <img src="assets/ticket.jpg" alt="" width="100%" height="100%" />
+      </div>
+      <div *ngIf="pnrData">
+        <div *ngIf="pnrData.error" style="font-size: 20px; font-weight: 600">
+          {{ pnrData.error }}
+        </div>
+        <div
+          *ngIf="pnrData.boarding_station"
+          style="font-size:16px;"
+        >
+          Boarding Station : <b>{{ pnrData.boarding_station }}</b>
+        </div>
+        <div
+          *ngIf="pnrData.reservation_upto"
+          style="font-size: 16px;"
+        >
+          Reservation Upto : <b>{{ pnrData.reservation_upto }}</b>
+        </div>
+        <br />
+        <div
+          *ngIf="pnrData.passenger"
+          style="
+            font-size: 16px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+          "
+        >
+          Passenger details:
+          <div
+            *ngFor="let passenger of pnrData.passenger; i: of; index"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+            "
+          >
+            <div style="display: flex; justify-content: space-around">
+              <p>Passenger Name <span style="font-weight: 500;"> {{ passenger.name }}</span></p> 
+            </div>
+            <div style="display: flex; justify-content: space-around">
+              Booking Status <b>{{ passenger.booking_status }}</b>
+            </div>
+            <div style="display: flex; justify-content: space-around">
+              Current Status <b>{{ passenger.current_status }}</b>
+            </div>
+          </div>
+        </div>
+        <br >
+        <div *ngIf="pnrData.train_name" style="font-size: 16px">
+          Train Name : {{ pnrData.train_name }}
+        </div>
+        <div *ngIf="pnrData.class" >
+          Class: {{ pnrData.class }}
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- {
+  "passenger": [
+      {
+          "name": "Passenger 1",
+          "booking_status": "WL",
+          "current_status": "-16"
+      },
+      {
+          "name": "Passenger 2",
+          "booking_status": "WL",
+          "current_status": "-17"
+      }
+  ],
+  "boarding_station": "Indara Jn-N/A",
+  "reservation_upto": "Thane-N/A",
+  "departure_data": {
+      "departure_date": "Mon, 24 Jan\n08.21",
+      "departure_time": "Mon, 24 Jan\n08.21"
+  },
+  "arrival_data": {
+      "arrival_date": "Mon, 24 Jan\n16.42",
+      "arrival_time": "Mon, 24 Jan\n16.42"
+  },
+  "quota": "",
+  "class": "SL",
+  "chart_status": "Chart Not Prepared",
+  "train_name": "Gkp Ltt Exp-15018",
+  "train_number": "Gkp Ltt Exp-15018"
+} -->
