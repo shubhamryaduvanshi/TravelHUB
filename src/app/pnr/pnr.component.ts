@@ -22,4 +22,6 @@ export class PNRComponent implements OnInit {
   }
 
 
+  
+
 }
