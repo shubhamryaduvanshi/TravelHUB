@@ -11,7 +11,7 @@
           <label>Enter PNR Number</label>
           <input ngModel #pnrNumber="ngModel" placeholder="PNR Number" name="pnrNumber" minlength="10" maxlength="10" required pattern="^[0-9]*$"/>
           <span style="color: rgb(228, 3, 3); padding-top: 3px;" *ngIf="pnrNumber.invalid && pnrNumber.touched" >* Please Enter 10 Digit PNR Number</span>
-          <button [disabled]="pnrNumber.invalid && pnrNumber.touched">Check Status</button>
+          <button [disabled]="pnrNumber.invalid && pnrNumber.untouched">Check Status</button>
         </div>
       </form>
 
@@ -82,32 +82,3 @@
   </div>
 </div>
 
-<!-- {
-  "passenger": [
-      {
-          "name": "Passenger 1",
-          "booking_status": "WL",
-          "current_status": "-16"
-      },
-      {
-          "name": "Passenger 2",
-          "booking_status": "WL",
-          "current_status": "-17"
-      }
-  ],
-  "boarding_station": "Indara Jn-N/A",
-  "reservation_upto": "Thane-N/A",
-  "departure_data": {
-      "departure_date": "Mon, 24 Jan\n08.21",
-      "departure_time": "Mon, 24 Jan\n08.21"
-  },
-  "arrival_data": {
-      "arrival_date": "Mon, 24 Jan\n16.42",
-      "arrival_time": "Mon, 24 Jan\n16.42"
-  },
-  "quota": "",
-  "class": "SL",
-  "chart_status": "Chart Not Prepared",
-  "train_name": "Gkp Ltt Exp-15018",
-  "train_number": "Gkp Ltt Exp-15018"
-} -->

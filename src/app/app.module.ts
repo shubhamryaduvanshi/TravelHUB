@@ -14,6 +14,9 @@ import { FooterComponent } from './footer/footer.component';
 import { PNRComponent } from './pnr/pnr.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HeroComponent } from './hero/hero.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+
 
 export function playerFactory() {
   return player;
@@ -27,7 +30,8 @@ export function playerFactory() {
     FeaturesComponentComponent,
     SafetyRulesComponent,
     FooterComponent,
-    PNRComponent
+    PNRComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ export function playerFactory() {
     NgbModule,
     LottieModule.forRoot({ player: playerFactory }),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
