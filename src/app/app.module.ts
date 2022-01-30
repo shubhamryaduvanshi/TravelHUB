@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponentComponent } from './header-component/header-component.component';
-import { CorouselComponent } from './corousel/corousel.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FeaturesComponentComponent } from './features-component/features-component.component';
 import { LottieModule } from 'ngx-lottie';
@@ -26,7 +25,6 @@ export function playerFactory() {
   declarations: [
     AppComponent,
     HeaderComponentComponent,
-    CorouselComponent,
     FeaturesComponentComponent,
     SafetyRulesComponent,
     FooterComponent,

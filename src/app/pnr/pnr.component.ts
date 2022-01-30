@@ -12,6 +12,7 @@ export class PNRComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public myMath = Math;
 
   pnrData: any;
   
