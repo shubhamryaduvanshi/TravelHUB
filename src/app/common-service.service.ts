@@ -10,12 +10,8 @@ export class CommonServiceService {
   constructor(private http: HttpClient) { }
 
 
-
-
-
-
   public getPNRStatus(pnr: any):Observable<any> {
-    let url="http://travelhubserver.herokuapp.com/pnrStatus";
+    let url="https://travelhubserver.herokuapp.com/pnrStatus";
     return this.http.post(url,{
       "PNR_Number":pnr
   });
