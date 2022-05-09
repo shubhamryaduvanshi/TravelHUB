@@ -21,7 +21,11 @@
       </div>
     </div>
     <div class="pnrResult">
-      <div *ngIf="!pnrData">
+      <div *ngIf="pnrLoader">
+        <ng-lottie width="135px" height="110px" [options]="option0"></ng-lottie>
+      </div>
+      <!-- loading  -->
+      <div *ngIf="!pnrData && !pnrLoader ">
         <img src="assets/ticket.jpg" alt="" width="100%" height="100%" />
       </div>
       <div *ngIf="pnrData" class="pnrData">

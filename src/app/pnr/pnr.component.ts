@@ -15,10 +15,17 @@ export class PNRComponent implements OnInit {
   public myMath = Math;
 
   pnrData: any;
-  
+  pnrLoader:boolean=false;
+
+  option0: any = {
+    path:'https://assets10.lottiefiles.com/packages/lf20_fyye8szy.json'
+  }
+
   getUserValue(data: any) {
+    this.pnrLoader=true;
     this.service.getPNRStatus(data.pnrNumber).subscribe(d => {
-      this.pnrData = d
+      this.pnrData = d;
+      this.pnrLoader=false;
     });
   }
 
